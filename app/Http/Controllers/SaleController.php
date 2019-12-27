@@ -7,6 +7,7 @@ use App\Http\Requests\SaleStoreRequest;
 use App\Http\Requests\SaleUpdateRequest;
 use App\Product;
 use App\Sale;
+use Illuminate\Http\Request;
 
 class SaleController extends Controller
 {
@@ -21,9 +22,10 @@ class SaleController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $sales = Sale::all();
+        //$sales = Sale::all();
+        $sales = Sale::searchable($request->all());
         $analytics = Sale::analytics($sales);
 
         return view('sales.index', compact('sales', 'analytics'));

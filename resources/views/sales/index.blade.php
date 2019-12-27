@@ -7,6 +7,26 @@
 
             @include('flash::message')
 
+            <form class="d-flex justify-content-between mb-3">
+                <select name="customer" class="form-control col-md-4">
+                    <option value="" selected>Todos clientes</option>
+                    @forelse ($customers as $customer)
+                        <option value="{{ $customer->id }}" {{ request()->input('customer') == $customer->id ? 'selected' : ''}}>{{ $customer->name }}</option>
+                    @empty
+                    @endforelse
+                </select>
+
+                <div class="d-flex align-items-end mb-2">
+                    <label for="start">Periodo: </label>
+                <input id="start" name="date[start]" type="date" class="form-control mx-2" value="{{ request()->input('date.start') ?? date('Y-m-01') }}">
+
+                    <label for="end">até</label>
+                    <input id="end" name="date[end]" type="date" class="form-control mx-2" value="{{ request()->input('date.end') ?? date('Y-m-d') }}">
+
+                    <button class="btn btn-primary">Buscar</button>
+                </div>
+            </form>
+
             <div class="card">
                 <div class="card-header d-flex justify-content-between">
                     Tabela de vendas
@@ -54,6 +74,11 @@
                                 </td>
                             </tr>
                         @empty
+                            <tr>
+                                <td colspan="6">
+                                    Nenhuma venda encontrada
+                                </td>
+                            </tr>
                         @endforelse
                     </tbody>
                 </table>

@@ -3,12 +3,13 @@
 namespace App;
 
 use App\Traits\Models\SaleAnalytics;
+use App\Traits\Search\HasSearch;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Sale extends Model
 {
-    use SaleAnalytics;
+    use SaleAnalytics, HasSearch;
 
     const STATUS_SOLD = 1;
     const STATUS_CANCELED = 2;
