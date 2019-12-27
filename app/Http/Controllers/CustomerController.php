@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Customer;
 use App\Http\Requests\CustomerStoreRequest;
 use App\Http\Requests\CustomerUpdateRequest;
-use Illuminate\Http\Request;
 
 class CustomerController extends Controller
 {
@@ -65,7 +64,7 @@ class CustomerController extends Controller
      */
     public function edit(Customer $customer)
     {
-        //
+        return view('customers.edit', compact('customer'));
     }
 
     /**
