@@ -23,6 +23,7 @@ Route::middleware('auth')->group(function() {
 
     Route::resource('/products', 'ProductController');
     Route::resource('/customers', 'CustomerController');
+    Route::resource('/sales', 'SaleController')->except('delete');
 
 });
 

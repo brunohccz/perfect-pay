@@ -23,7 +23,7 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
+                <a class="navbar-brand" href="{{ url('/home') }}">
                     {{ config('app.name', 'Laravel') }}
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -39,6 +39,9 @@
                             </li>
                             <li>
                                 <a class="nav-link" href="{{ route('customers.index') }}">Clientes</a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="{{ route('sales.index') }}">Vendas</a>
                             </li>
                         @endauth
                     </ul>

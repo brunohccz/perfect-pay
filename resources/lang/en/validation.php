@@ -146,6 +146,9 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes' => [
+        'product_id' => 'product',
+        'customer_id' => 'customer'
+    ],
 
 ];
