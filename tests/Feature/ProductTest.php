@@ -16,12 +16,7 @@ class ProductTest extends TestCase
     public function test_user_can_create_a_product()
     {
         $user = factory(User::class)->create();
-
-        $attributes = [
-            'name'  => $this->faker->name,
-            'description' => $this->faker->paragraph,
-            'price' => $this->faker->randomFloat(2, 1, 9999)
-        ];
+        $attributes = factory(Product::class)->make()->toArray();
 
         $this->actingAs($user)->post('/products', $attributes);
 
