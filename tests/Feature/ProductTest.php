@@ -21,8 +21,6 @@ class ProductTest extends TestCase
         $this->actingAs($user)->post('/products', $attributes);
 
         $this->assertDatabaseHas('products', $attributes);
-
-        $this->actingAs($user)->get('/products')->assertSee($attributes['name']);
     }
 
     /** @test */
